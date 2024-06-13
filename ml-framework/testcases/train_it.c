@@ -84,7 +84,7 @@ if(A==NULL)
 // We discussed that c will be 0 and m will be 1
 // We also discussed that value of m and c can be anything
 // hence I am taking c as 0 and m also as 0
-m=mlfw_column_vec_create_new_filled(I_columns,0.0);
+m=mlfw_column_vec_double_create_new_filled(I_columns,0.0);
 if(m==NULL)
 {
 	printf("Low memory\n");
@@ -155,6 +155,9 @@ if(ETE==NULL)
 
 sum_of_squared_error_values=mlfw_column_vec_double_get(ETE,0);
 final_error_value=sum_of_squared_error_values/I_rows;
+
+printf("Sum of squared error values : %41.15lf\n", sum_of_squared_error_values);
+printf("Final error value : %41.15lf\n", final_error_value);
 
 //logic to update m and c, technically our m column vector
 

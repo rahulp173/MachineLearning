@@ -48,7 +48,7 @@ void mlfw_column_vec_double_set(mlfw_column_vec_double *vector,index_t index,dou
 	if(index<0 || index>=vector->size) return;
 	vector->data[index]=value;
 }
-mlfw_column_vec_double * mlfw_column_vec_create_new_filled(dimension_t size, double value)
+mlfw_column_vec_double * mlfw_column_vec_double_create_new_filled(dimension_t size, double value)
 {
 	index_t i;
 	mlfw_column_vec_double *vector;
@@ -86,7 +86,7 @@ mlfw_row_vec_double * mlfw_row_vec_double_create_new(dimension_t size)
 	vector->data=(double *)malloc(sizeof(double)*size);
 	if(vector->data==NULL)
 	{
-		free(vector)
+		free(vector);
 		return NULL;
 	}
 	vector->size=size;

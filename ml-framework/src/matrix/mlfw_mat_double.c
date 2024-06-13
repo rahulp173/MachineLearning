@@ -185,7 +185,7 @@ void mlfw_mat_double_copy(mlfw_mat_double *target,mlfw_mat_double *source,index_
 		{
 			if(target_r>=0 && target_r<target->rows && target_c>=0 && target_c<target->columns)
 			{
-				target->data[target_r][target_c]=source->data[source_r][source_c]
+				target->data[target_r][target_c]=source->data[source_r][source_c];
 			}
 			++source_c;
 			++target_c;
