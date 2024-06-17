@@ -303,3 +303,20 @@ void mlfw_mat_double_to_csv(mlfw_mat_double *matrix,char *csv_file_name)
 	}
 	fclose(file);
 }
+
+mlfw_mat_double * mlfw_mat_double_transpose(mlfw_mat_double *matrix)
+{
+	mlfw_mat_double *matrix_t;
+	index_t r,c;
+	if(matrix==NULL) return NULL;
+	matrix_t=mlfw_mat_double_create_new(matrix->columns,matrix->rows);
+	if(matrix_t==NULL) return NULL;
+	for(r=0;r<matrix->rows;++r)
+	{
+		for(c=0;c<matrix->columns;++c)
+		{
+			matrix_t->data[c][r]=matrix->data[r][c];
+		}
+	}
+return matrix_t;
+}
