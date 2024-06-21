@@ -6,6 +6,7 @@
 
 // global variable
 uint64_t NUMBER_OF_ITERATIONS=3000000;
+char *DATASET_FILE_NAME=NULL;
 
 
 void train_it()
@@ -39,7 +40,7 @@ mlfw_column_vec_double *UM; // (m-TMP)added after calculus
 double sum_of_squared_error_values;
 double final_error_value;
 
-dataset=mlfw_mat_double_from_csv("IceCreamSales.csv");
+dataset=mlfw_mat_double_from_csv(DATASET_FILE_NAME);
 if(dataset==NULL)
 {
 	printf("Unable to load dataset from IceCreamSales.csv");
@@ -269,8 +270,14 @@ mlfw_column_vec_double_destroy(A);
 mlfw_column_vec_double_destroy(m); // the last m which was actually UM
 }
 
-int main()
+int main(int argc,char *argv[])
 {
+if(argc!=2)
+{
+	printf("[Usage : train_it_1.out dataset_name]");
+	return 0;
+}
+DATASET_FILE_NAME=argv[1];
 train_it();
 return 0;
 }
