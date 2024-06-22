@@ -1,0 +1,10 @@
+import numpy
+a=numpy.array([10,20,3,50])
+b=numpy.array([30,40,14,150])
+print(type(a))
+print('a',a)
+print('b',b)
+c=numpy.add(a,b)
+print('a+b',c)
+d=numpy.subtract(a,b)
+print('a-b',d)
